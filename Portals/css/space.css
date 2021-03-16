@@ -107,6 +107,7 @@ button:hover {
   transform: scale(1.07);
 }
 #button-main{
+  /* Margins: top, right, bottom and left */
   padding: 15px 32px;
   background-color: #A67A5B;
   color: #D3ECEE;
@@ -247,26 +248,5 @@ a:hover {
   border: none;
   margin:5px;
 }
-#grid-position {
-  grid-column: 2 / 3;
-}
-#cockpit{
-  margin-bottom: 20px;
-  border: solid 1px #000000;
-  border-radius: 8px;
-}
-#inputEmergency{
-  margin: 8px 0 8px 0;
-  /* Margins: top, right, bottom and left */
-  border: solid 2px #000000;
-  width: 100px;
-  outline: none;
-}
-#enterCode {
-  margin-top: 8px;
-  margin-bottom: 8px;
-  color: #D3ECEE;
-  background-color: #A67A5B;
-  outline: none;
-}
+
 

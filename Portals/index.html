@@ -2,26 +2,47 @@
 <html lang="en">
 <head>
     <meta charset ="UTF-8"/>
-    <title>3-columns layout with full-width header and footer </title>
+    <title>Portals</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="wrapper">
-        <header class="header">PORTALS</header>
-            <article class="main">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                ac turpis egestas . Vestibulum tortor quam , feugiat vitae , ultricies eget ,
-                tempor sit amet , ante . Donec eu libero sit amet quam egestas semper . Aenean
-                ultricies mi vitae est . Mauris placerat eleifend leo .</p>
-            </article>
-        <footer class="footer">
-            <ul class="navigation">
-                <li><a href="#">Copyright</a></li>
-                <li><a href="#">Dark/Light</a></li>
-                <li><a href="#">References</a></li>
-                <li><a href="#">Restart game</a></li>
-            </ul>
-        </footer>
-    </div>
-</body>
+    <body id="body-main">
+            <div id="wrapper">
+                <header id="header">
+                   <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                                The world needs a hero. A playful evil time-traveler has stolen a
+                                powerful weapon that has to be found to avoid destruction and save
+                                our planet.
+                            </p>
+                            <p class="paragraph-main">
+                                Luckily we have a time machine to jump through the space-time continuum.
+                                However, there are tricks, traps and hidden clues along the way, you will
+                                have to use your astuteness and ingenuity to overcome many obstacles.
+                             </p>
+                            <p class="paragraph-main">
+                                If you decide to embark this journey be sure to be prepared for
+                                challenging times. Humanity will be in debt with you forever traveler, and if
+                                you were to come back alive, great rewards will be waiting...
+                            </p>
+                        </article>
+                        <div class="wrapper-2">
+                            <button type="button" id="button-main" onclick="location.href='first-room.html'">Are you our brave hero?</button>
+                        </div>
+                    </section>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="#">Copyright</a></li>
+                        <li><a href="#">Dark/Light</a></li>
+                        <li><a href="#">References</a></li>
+                    </ul>
+                </footer>
+            </div>
+    </body>
 </html>

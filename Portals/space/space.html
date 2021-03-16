@@ -1,0 +1,56 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="space-body" onload="changeBackground();">
+        <div id="twinkling">
+            <div id="wrapper">
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                                You find yourself in a spaceship, floating in the middle of the void.
+                                The portal that you came from is still open, you also see another
+                                spaceship, further away, with the evil villain symbol stamped on it.
+                            </p>
+                            <p class="paragraph-main">
+                                To your right a black hole is slowly sucking in all around and your spaceship with it.
+                                To the left a new portal has been opened. At the same time, an incoming communication
+                                ask awaiting for your approval. Decide quick hero, destiny awaits.
+                            </p>
+                            <div id="grid-space">
+                                <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='space-chase.html'">Chase the spaceship</button></div>
+                                <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../second-room.html'">Go back through the same portal</button></div>
+                                <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='first-room.html'">Go into the black hole</button></div>
+                                <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../city/city.html'">Enter the new portal</button></div>
+                                <div class ="grid-item"><button type="button" class="button-first-room" onclick="incomingComm()">Accept incoming communication</button></div>
+                                <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/do-nothing.html'">Don't do anything</button></div>
+                            </div>
+                        </article>
+                    </section>
+
+                    <aside id="help-section">
+                        <p id="paragraph-help">
+                        </p>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close Hint</button>
+                    </aside>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="#">Dark/Light</a></li>
+                        <li><a href="../index.html">Restart game</a></li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+    </body>
+    <script src="../js/javascript.js"></script>
+</html>
