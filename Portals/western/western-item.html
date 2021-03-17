@@ -1,0 +1,52 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="western-body" onload="westernAdjust(); checkingPath();">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                                You find a mirror and below a bag.
+                            </p>
+                            <p class="paragraph-main">
+                                When you decide to open the bag you find a fire weapon, a musical instrument and a note "Teleportation code - 59020"
+                            </p>
+                            <p class="paragraph-main">
+                                Upon opening the bag two portals appear without any useful hint.
+                            </p>
+                            <p class="paragraph-main">
+                                Select one item and also your path ahead.
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item"><button type="button" id="itemMirror" class="button-first-room" onclick="mirror()">Mirror</button></div>
+                            <div class ="grid-item"><button type="button" id="itemInst" class="button-first-room" onclick="musicInstr()">Musical Instrument</button></div>
+                            <div class ="grid-item"><button type="button" id="itemWeap" class="button-first-room" onclick="fireWeap()">Fire Weapon</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/do-nothing.html'">Portal</button></div>
+                            <div class ="grid-item" id="hidingItem"><button type="button" class="button-first-room" onclick="location.href='western.html'">Trace your steps back</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../western/western-noise.html'">Portal</button></div>
+                        </div>
+                    </section>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="#">Dark/Light</a></li>
+                        <li><a href="../index.html">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>

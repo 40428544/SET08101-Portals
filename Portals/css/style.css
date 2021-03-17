@@ -33,6 +33,14 @@
   flex-wrap: wrap;
   padding: 0;
 }
+.wrapper-2{
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  text-align: center;
+  justify-content: space-around;
+}
 #main {
   border-style: solid;
   border-width: 30px;
@@ -59,6 +67,7 @@
   -moz-box-shadow:inset 0 0 10px #000000;
   /* Depth to main, inner border shadow */
 }
+
 #help-section {
   display:none;
 
@@ -100,6 +109,21 @@
   word-wrap: break-word;
   font-family: Arial, Helvetica, sans-serif;
 }
+#two-doors-paragraph {
+  width:175px;
+  height:auto;
+  outline: none;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom:0;
+}
+#error-code {
+  margin: 0 auto auto auto;
+  font-size:19px;
+  text-align:center;
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+}
 #article-main {
   margin:3em;
 }
@@ -118,6 +142,14 @@ button:hover {
   margin-top: 8px;
   color: #D3ECEE;
   background-color: #A67A5B;
+  outline: none;
+}
+.button-first-room{
+  padding: 15px 32px;
+  background-color: #A67A5B;
+  color: #D3ECEE;
+  font-weight: bold;
+  font-size:16px;
   outline: none;
 }
 #footer {
@@ -169,21 +201,6 @@ a:hover {
   height:200px;
   border: solid 1px #000000;
 }
-.wrapper-2{
-  display: flex;
-  flex-flow: row wrap;
-  font-weight: bold;
-  text-align: center;
-  justify-content: space-around;
-}
-.button-first-room{
-  padding: 15px 32px;
-  background-color: #A67A5B;
-  color: #D3ECEE;
-  font-weight: bold;
-  font-size:16px;
-  outline: none;
-}
 #portal1{
   width:175px;
   height:225px;
@@ -211,6 +228,18 @@ a:hover {
   margin-top: 30px;
   margin-bottom:30px;
 }
+.portal-door {
+  width:175px;
+  height:225px;
+  background-image: url("../images/doors.jpg");
+  background-position: center;
+  background-size: cover;
+  outline: none;
+  margin-top: 30px;
+  margin-bottom:30px;
+  font-size: 50px;
+  pointer-events: none;
+}
 #space-body {
   padding: 1em;
   background-image:url("../images/background-main.jpg");
@@ -228,7 +257,7 @@ a:hover {
 }
 #city-effect {
   z-index: 1;
-  background: transparent  url("../images/matrix.png") repeat top center;
+  background: transparent  url("../images/rain.png") repeat top center;
   animation: move-city-back 500s linear reverse infinite;
 }
 #western-body {
@@ -250,10 +279,9 @@ a:hover {
 #grid-position {
   grid-column: 2 / 3;
 }
-#cockpit{
-  margin-bottom: 20px;
-  border: solid 1px #000000;
-  border-radius: 8px;
+#grid-position-two-doors {
+  grid-row: 2/2;
+  colum: 1/ 3;
 }
 #inputEmergency{
   margin: 8px 0 8px 0;
@@ -268,5 +296,22 @@ a:hover {
   color: #D3ECEE;
   background-color: #A67A5B;
   outline: none;
+}
+#cockpit{
+  margin-bottom: 10px;
+  border: solid 1px #000000;
+  border-radius: 8px;
+}
+#game-over{
+  font-size: 80px;
+  color: red;
+  text-shadow: -3px -3px #404E4D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#city-paragraph{
+  margin-bottom:60px;
+}
+#hidingItem{
+  visibility: hidden;
 }
 

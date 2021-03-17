@@ -1,0 +1,55 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="city-body" onload="changeBackgroundCity(); storePath();">
+        <div id="city-effect">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                               There is a panel in the middle of the room that has many keys, each with different colours and
+                                numbers. Above the keyboard a screen and behind a Portals machine.
+                            </p>
+                            <p class="paragraph-main">
+                                While you inspect the machine you can hear how the door behind you has locked itself.
+                            </p>
+                            <p class="paragraph-main" id="city-paragraph">
+                                You see how two new portals appear, the first labelled as 'Memory' the second as 'Riddle'.
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="keyboard()">Keyboard</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='room-second.html'">Memory</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/two-doors.html'">Riddle</button></div>
+                        </div>
+                    </section>
+
+                    <aside id="help-section">
+                        <p id="paragraph-help">
+                        </p>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close Hint</button>
+                    </aside>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="#">Dark/Light</a></li>
+                        <li><a href="../index.html">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+        </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>
