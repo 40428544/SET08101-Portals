@@ -11,7 +11,7 @@ const doorNote = "The door is locked but you find a note: 'You need a 5 digit co
 const Path = "You have been here already!";
 const comb = "Enter the correct combination of numbers for these colours, Purple, Blue and Yellow, using the following format 1,2,3";
 const Walking = "Walk path available";
-const  mirroritem = "You have a mirror";
+const  mirrorItem = "You have a mirror";
 const  weapon = "You have a weapon";
 const music = "You have an instrument";
 const creatureInteract = "The creature recognises the instrument and eases its attitude with you.";
@@ -24,9 +24,11 @@ const finalAdvice = "Device beeping! - You have reached the final room!";
 function changeBackground() {
     document.getElementById("main").style.backgroundColor= "#FFFFFFB3";
 }
+
 function changeBackgroundCity() {
     document.getElementById("main").style.backgroundColor = "#ACC8E580";
 }
+
 function CreatureAdjust() {
     document.getElementById("article-main").style.marginTop = "0";
     document.getElementById("article-main").style.marginBottom = "0";
@@ -35,28 +37,32 @@ function CreatureAdjust() {
         document.getElementById("western-hidden-weapon").style.display = "block";
     } else if ("music" in localStorage) {
         document.getElementById("western-hidden-music").style.display = "block";
-    } else if ("mirroritem" in localStorage) {
+    } else if ("mirrorItem" in localStorage) {
         document.getElementById("western-hidden-mirror").style.display = "block";
     }
 }
+
 function itemCheck() {
     if ("weapon" in localStorage) {
         document.getElementById("western-hidden-weapon").style.display = "block";
     } else if ("music" in localStorage) {
         document.getElementById("western-hidden-music").style.display = "block";
-    } else if ("mirroritem" in localStorage) {
+    } else if ("mirrorItem" in localStorage) {
         document.getElementById("western-hidden-mirror").style.display = "block";
     }
 }
+
 function creatureInteractAdjust() {
     document.getElementById("article-main").style.marginTop = "0";
     document.getElementById("article-main").style.marginBottom = "0";
 }
+
 function doorsMain() {
     document.getElementById("article-main").style.margin = "0";
     document.getElementById("main").style.maxHeight = "1000px";
     document.getElementById("grid-space").style.marginBottom = "15px";
 }
+
 //console.log(helpSection.style.display)
 function store_device() {
         helpSection.style.display = "block";
@@ -68,12 +74,14 @@ function store_device() {
             helpSection.style.display = "block";
         }
 }
+
 function close_hint() {
     if (helpSection.style.display === "block") {
         helpSection.style.display = "none";
         document.getElementById("main").style.marginRight = "auto";
     }
 }
+
 function incomingComm() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -85,6 +93,7 @@ function incomingComm() {
         helpSection.style.display = "block";
     }
 }
+
 function emergencyCode(){
     helpSection.style.display = "block";
     document.getElementById("help-section").style.backgroundColor = "#FFFFFFB3";
@@ -110,6 +119,7 @@ function emergencyCode(){
         helpSection.style.display = "block";
     }
 }
+
 function enteringCode() {
     const userCode = document.getElementById("inputEmergency").value;
     if (userCode === "59020"){
@@ -120,6 +130,7 @@ function enteringCode() {
         window.location.href = "../western/western-noise.html"
     }
 }
+
 function openDoor() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -130,17 +141,21 @@ function openDoor() {
         helpSection.style.display = "block"
     }
 }
+
 function storePath() {
     localStorage.setItem("Path", Path);
 }
+
 function addLocation() {
     localStorage.setItem("Walking", Walking);
 }
+
 function checkingPath() {
     if ("Walking" in localStorage) {
         document.getElementById("hidingItem").style.visibility = "visible";
     }
 }
+
 function runOrPath(){
     if("Walking" in localStorage){
         document.getElementById("trace-back").style.display = "block"
@@ -148,6 +163,7 @@ function runOrPath(){
         document.getElementById("hide-run").style.display = "block"
     }
 }
+
 function  alreadyHere() {
     if ("Path" in localStorage) {
         helpSection.style.display = "block";
@@ -160,6 +176,7 @@ function  alreadyHere() {
         }
     }
 }
+
 function keyboard() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -199,7 +216,7 @@ function colorComb() {
 }
 
 function mirror() {
-    localStorage.setItem("mirroritem", mirroritem);
+    localStorage.setItem("mirrorItem", mirrorItem);
     document.getElementById("itemMirror").style.pointerEvents = "none";
     document.getElementById("itemInst").style.pointerEvents = "none";
     document.getElementById("itemWeap").style.pointerEvents = "none";
@@ -210,6 +227,7 @@ function mirror() {
         localStorage.removeItem('music');
     }
 }
+
 function musicInstr() {
     localStorage.setItem("music", music);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -219,10 +237,11 @@ function musicInstr() {
     if ("weapon" in localStorage) {
         localStorage.removeItem('weapon');
     }
-    if ("mirroritem" in localStorage) {
-        localStorage.removeItem('mirroritem');
+    if ("mirrorItem" in localStorage) {
+        localStorage.removeItem('mirrorItem');
     }
 }
+
 function fireWeap() {
     localStorage.setItem("weapon", weapon);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -232,10 +251,11 @@ function fireWeap() {
     if ("music" in localStorage) {
         localStorage.removeItem('music');
     }
-    if ("mirroritem" in localStorage) {
-        localStorage.removeItem('mirroritem');
+    if ("mirrorItem" in localStorage) {
+        localStorage.removeItem('mirrorItem');
     }
 }
+
 function helpCreature() {
     document.getElementById("help-section").style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -253,6 +273,7 @@ function helpCreature() {
         helpSection.style.display = "block";
     }
 }
+
 function attackCreature() {
     document.getElementById("help-section").style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -271,6 +292,7 @@ function attackCreature() {
         helpSection.style.display = "block";
     }
 }
+
 function showMirror() {
     document.getElementById("help-section").style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -288,14 +310,17 @@ function showMirror() {
         helpSection.style.display = "block";
     }
 }
+
 function nextPhase() {
     window.location.href = "western-creature-help.html"
 }
+
 function attack() {
     window.location.href = "western-creature-attack.html"
 }
+
 function dice() {
-    luck = Math.floor(Math.random() * Math.floor(10));
+    const luck = Math.floor(Math.random() * Math.floor(10));
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
     if (luck <= 4) {
         document.getElementById("help-section").style.display = "block";
@@ -313,9 +338,11 @@ function dice() {
        window.location.href = "../mixed-rooms/gameover.html";
     }
 }
+
 function afterShot() {
     window.location.href = "../mixed-rooms/final-boss.html";
 }
+
 function deviceBeep() {
     document.getElementById("article-main").style.marginBottom = "85px";
     if ("Device" in localStorage){
@@ -328,6 +355,7 @@ function deviceBeep() {
         }
     }
 }
+
 function deviceBeepFinal() {
     if ("Device" in localStorage){
         helpSection.style.display = "block";
@@ -339,44 +367,57 @@ function deviceBeepFinal() {
         }
     }
 }
+
 function changeItems() {
     if ("music" in localStorage) {
         localStorage.removeItem('music');
     }
-    if ("mirroritem" in localStorage) {
-        localStorage.removeItem('mirroritem');
+    if ("mirrorItem" in localStorage) {
+        localStorage.removeItem('mirrorItem');
     }
 
     window.location.href = "../mixed-rooms/final-boss.html";
 }
 
 /**
- *  AAAAA!!!
+ *  Final boss memory test.
  */
 function memoryTest() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
     document.getElementsByClassName("button-hint-close")
     paragraph.textContent += weaponCreature ;
-    paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+
+    paragraph.parentNode.insertBefore(input, paragraph.nextSibling); //adds the node after -- spacing.appendChild(acceptCode);
+    input.setAttribute("id", "inputEmergency");
+
+    input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
     acceptCode.setAttribute("id", "enterCode");
     acceptCode.style.height = "20px";
     acceptCode.style.width = "70px";
-    acceptCode.innerHTML ="Shoot";
+    acceptCode.innerHTML ="Confirm";
+    acceptCode.style.b
+
+    document.getElementById("enterCode").onclick = function() {colorComb()};
     if(count() < userCount){
 
     }
 }
+
+/**
+ *  Counting pages.
+ */
 function count() {
-    var status = sessionStorage.getItem("Refresh");
+    const status = sessionStorage.getItem("Refresh");
     if (!status){
-        sessionStorage.setItem("Refresh", 1);
+        sessionStorage.setItem("Refresh", "1");
     }else {
-        sessionStorage.setItem("Refresh", parseInt(status) + 1);
+        sessionStorage.setItem("Refresh", `${parseInt(status) + 1}`);  //String using parseInt inside.
     }
     console.log(status);
     return status;
 }
+
 function resetCount() {
     sessionStorage.clear();
     localStorage.clear();
