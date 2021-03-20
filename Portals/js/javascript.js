@@ -209,7 +209,6 @@ function mirror() {
     if ("music" in localStorage) {
         localStorage.removeItem('music');
     }
-
 }
 function musicInstr() {
     localStorage.setItem("music", music);
@@ -224,7 +223,6 @@ function musicInstr() {
         localStorage.removeItem('mirroritem');
     }
 }
-
 function fireWeap() {
     localStorage.setItem("weapon", weapon);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -350,14 +348,36 @@ function changeItems() {
     }
 
     window.location.href = "../mixed-rooms/final-boss.html";
-
 }
+
+/**
+ *  AAAAA!!!
+ */
 function memoryTest() {
-    console.log(sessionStorage.clickcount);
-    if(typeof(Storage) === "undefined"){
-        if (sessionStorage.clickcount) {
-            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
-        }else
-            sessionStorage.clickount = 1;
+    helpSection.style.display = "block";
+    document.getElementById("main").style.marginRight = "0";
+    document.getElementsByClassName("button-hint-close")
+    paragraph.textContent += weaponCreature ;
+    paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+    acceptCode.setAttribute("id", "enterCode");
+    acceptCode.style.height = "20px";
+    acceptCode.style.width = "70px";
+    acceptCode.innerHTML ="Shoot";
+    if(count() < userCount){
+
     }
+}
+function count() {
+    var status = sessionStorage.getItem("Refresh");
+    if (!status){
+        sessionStorage.setItem("Refresh", 1);
+    }else {
+        sessionStorage.setItem("Refresh", parseInt(status) + 1);
+    }
+    console.log(status);
+    return status;
+}
+function resetCount() {
+    sessionStorage.clear();
+    localStorage.clear();
 }
