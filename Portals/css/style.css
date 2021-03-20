@@ -201,6 +201,12 @@ a:hover {
   height:200px;
   border: solid 1px #000000;
 }
+#villain {
+  border: solid 1px #000000;
+  width: 180px;
+  height: 250px;
+  margin-right: 45px;
+}
 #portal1{
   width:175px;
   height:225px;
@@ -272,6 +278,13 @@ a:hover {
   margin-right: 30px;
   margin-left:30px;
 }
+#grid-two-columns{
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 1px;
+  margin-right: 30px;
+  margin-left:30px;
+}
 .grid-item {
   border: none;
   margin:5px;
@@ -313,5 +326,26 @@ a:hover {
 }
 #hidingItem{
   visibility: hidden;
+}
+#western-hidden-weapon{
+  display: none;
+  grid-row: 2/2;
+  grid-column: 2 / 3;
+}
+#western-hidden-mirror{
+  display: none;
+  grid-row: 2/2;
+  grid-column: 2 / 3;
+}
+#western-hidden-music{
+  display: none;
+  grid-row: 2/2;
+  grid-column: 2 / 3;
+}
+#trace-back{
+  display: none;
+}
+#hide-run{
+  display: none;
 }
 

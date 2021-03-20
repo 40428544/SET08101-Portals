@@ -5,7 +5,7 @@
     <title>Portals</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-    <body id="western-body" onload="westernAdjust()">
+    <body id="western-body" onload="runOrPath();">
             <div id="wrapper">
 
                 <header id="header">
@@ -16,20 +16,23 @@
                     <section id="main">
                         <article id="article-main">
                             <p class="paragraph-main">
-                                You are in the middle of an arid region that doesn't seem to have an ending. Short after your arrival you hear a laud growl
-                                similar to that of an animal being hurt, the noise doesn't come across as familiar.
+                                There is a valley in front of you and from afar you can see a creature you had never seen before, it has been hurt and is growling.
                             </p>
                             <p class="paragraph-main">
-                                The portal that you came from is no longer there but you see the villain escaping in the opposite direction to the noise you heard.
+                                You find it intimidating as it looks like it could kill in the blink of an eye, although, currently seems weak.
                             </p>
                             <p class="paragraph-main">
-                                You also see a bright item in the horizon, a few kilometers away.
+                                At your position a portal appears when you place your eyes on the creature.
+                            </p>
+                            <p class="paragraph-main">
+                                What would you do?
                             </p>
                         </article>
                         <div id="grid-space">
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='space-chase.html'">Follow the villain</button></div>
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../second-room.html'">Walk towards the shiny object</button></div>
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/gameover.html'">Investigate the noise</button></div>
+                            <div class ="grid-item" id="hide-run"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/two-doors.html'">Run away</button></div>
+                            <div class ="grid-item" id="trace-back"><button type="button" class="button-first-room" onclick="location.href='western.html'">Trace your steps back</button></div>
+                            <div class ="grid-item" ><button type="button" class="button-first-room" onclick="location.href='western-villain.html'">Portal</button></div>
+                            <div class ="grid-item" ><button type="button" class="button-first-room" onclick="location.href='western-creature.html'">Approach</button></div>
                         </div>
                     </section>
                 </div>

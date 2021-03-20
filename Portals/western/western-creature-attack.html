@@ -5,7 +5,7 @@
     <title>Portals</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-    <body id="western-body" onload="deviceBeep();">
+    <body id="western-body" onload="creatureInteractAdjust();">
             <div id="wrapper">
 
                 <header id="header">
@@ -15,25 +15,24 @@
                 <div id="wrapper-help-main">
                     <section id="main">
                         <article id="article-main">
+                            <div id="container-portal-machine">
+                                <img src="../images/crature.jpg" alt="Creature" id="portal-machine">
+                            </div>
                             <p class="paragraph-main">
-                                As you walk on you realise that what you saw a mirage. However, a sandstorm has lifted and you can't find your way back.
+                                While the creature charges, the only chance of survival is to kill it before it reaches you.
                             </p>
                             <p class="paragraph-main">
-                                You don't see anything around to provide safe coverage and the storm is going to be on you in a few minutes.
-                            </p>
-                            <p class="paragraph-main">
-                                Where the mirage was, there are now two portals.
+                                The shot must be precise.
                             </p>
                         </article>
-                        <div id="grid-two-columns">
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/gameover.html'">Right portal</button></div>
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/do-nothing.html'">Left portal</button></div>
+                        <div id="grid-space">
+                            <div class ="grid-item" id="grid-position" ><button type="button" class="button-first-room" onclick="dice()">Roll dice</button></div>
                         </div>
                     </section>
                     <aside id="help-section">
                         <p id="paragraph-help">
                         </p>
-                        <button type="button" class="button-hint-close" onclick="close_hint()">Close Hint</button>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close dialogue</button>
                     </aside>
                 </div>
 
@@ -43,6 +42,7 @@
                         <li><a href="../index.html">Restart game</a></li>
                     </ul>
                 </footer>
+
             </div>
     </body>
 <script src="../js/javascript.js"></script>

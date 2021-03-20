@@ -1,0 +1,59 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="body-main" onload="deviceBeepFinal(); itemCheck(); memoryTest()">
+            <div id="wrapper">
+
+                <header id="header">
+                   <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <div class="wrapper-2">
+                                <img src="../images/villain.jpg" alt="Portal machine" id="villain">
+                                <div class="paragraph-main">
+                                    <p>
+                                        You have found me, congratulations. I will give you the opportunity
+                                        to defeat me but be advised, it won't be easy.
+                                    </p>
+                                    <p>
+                                        You can choose between three options, unless you have something hidden...
+                                    </p>
+                                    <p>
+                                        Answer correctly and I will give up the weapon.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="memoryTest()">Memory test</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='second-room.html'">Knowledge question</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='second-room.html'">Timed question</button></div>
+                            <div class ="grid-item" id="western-hidden-weapon"><button type="button" class="button-first-room" onclick="attackCreature()">Use fire weapon</button></div>
+                        </div>
+                    </section>
+
+                    <aside id="help-section">
+                        <p id="paragraph-help">
+                        </p>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close</button>
+                    </aside>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="#">Dark/Light</a></li>
+                        <li><a href="../index.html">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+    </body>
+    <script src="../js/javascript.js"></script> <!-- At the bottom so it can modify DOM after page load -->
+</html>

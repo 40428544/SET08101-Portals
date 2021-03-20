@@ -1,4 +1,4 @@
-const Device = "Device picked"
+const Device = "Device picked";
 const paragraph = document.getElementById("paragraph-help");
 const helpSection = document.getElementById("help-section");
 const text = "You have found a device!  There is also a note indicating that it would be better not to kick the machine...";
@@ -8,25 +8,50 @@ const input = document.createElement("INPUT");
 const acceptCode = document.createElement("BUTTON");
 const errorCode = document.createElement("P");
 const doorNote = "The door is locked but you find a note: 'You need a 5 digit code and you have the last 2 in this room'";
-const Path = "You have been here already!"
+const Path = "You have been here already!";
 const comb = "Enter the correct combination of numbers for these colours, Purple, Blue and Yellow, using the following format 1,2,3";
 const Walking = "Walk path available";
 const  mirroritem = "You have a mirror";
 const  weapon = "You have a weapon";
 const music = "You have an instrument";
+const creatureInteract = "The creature recognises the instrument and eases its attitude with you.";
+const weaponCreature = "The creature startles when it sees the weapon and attacks you.";
+const mirrorCreature = "The creature seems interested about the mirror and eases its attitude.";
+const deadCreature = "You managed a successful shot. The creature leaves a portal in its location after vanishing.";
+const deviceAdvicePortal = "Device beeping! - You should definitely take the left portal to avoid a certain death.";
+const finalAdvice = "Device beeping! - You have reached the final room!";
 
 function changeBackground() {
     document.getElementById("main").style.backgroundColor= "#FFFFFFB3";
 }
-
 function changeBackgroundCity() {
     document.getElementById("main").style.backgroundColor = "#ACC8E580";
 }
+function CreatureAdjust() {
+    document.getElementById("article-main").style.marginTop = "0";
+    document.getElementById("article-main").style.marginBottom = "0";
 
-function westernAdjust() {
-    document.getElementById("grid-space").style.marginTop = "50px";
+    if ("weapon" in localStorage) {
+        document.getElementById("western-hidden-weapon").style.display = "block";
+    } else if ("music" in localStorage) {
+        document.getElementById("western-hidden-music").style.display = "block";
+    } else if ("mirroritem" in localStorage) {
+        document.getElementById("western-hidden-mirror").style.display = "block";
+    }
 }
-
+function itemCheck() {
+    if ("weapon" in localStorage) {
+        document.getElementById("western-hidden-weapon").style.display = "block";
+    } else if ("music" in localStorage) {
+        document.getElementById("western-hidden-music").style.display = "block";
+    } else if ("mirroritem" in localStorage) {
+        document.getElementById("western-hidden-mirror").style.display = "block";
+    }
+}
+function creatureInteractAdjust() {
+    document.getElementById("article-main").style.marginTop = "0";
+    document.getElementById("article-main").style.marginBottom = "0";
+}
 function doorsMain() {
     document.getElementById("article-main").style.margin = "0";
     document.getElementById("main").style.maxHeight = "1000px";
@@ -43,14 +68,12 @@ function store_device() {
             helpSection.style.display = "block";
         }
 }
-
 function close_hint() {
     if (helpSection.style.display === "block") {
         helpSection.style.display = "none";
         document.getElementById("main").style.marginRight = "auto";
     }
 }
-
 function incomingComm() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -62,7 +85,6 @@ function incomingComm() {
         helpSection.style.display = "block";
     }
 }
-
 function emergencyCode(){
     helpSection.style.display = "block";
     document.getElementById("help-section").style.backgroundColor = "#FFFFFFB3";
@@ -88,7 +110,6 @@ function emergencyCode(){
         helpSection.style.display = "block";
     }
 }
-
 function enteringCode() {
     const userCode = document.getElementById("inputEmergency").value;
     if (userCode === "59020"){
@@ -96,10 +117,9 @@ function enteringCode() {
     } else if (userCode === "") {
         return false;
     } else {
-        window.location.href = "../mixed-rooms/two-doors.html"
+        window.location.href = "../western/western-noise.html"
     }
 }
-
 function openDoor() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -110,7 +130,6 @@ function openDoor() {
         helpSection.style.display = "block"
     }
 }
-
 function storePath() {
     localStorage.setItem("Path", Path);
 }
@@ -122,7 +141,13 @@ function checkingPath() {
         document.getElementById("hidingItem").style.visibility = "visible";
     }
 }
-
+function runOrPath(){
+    if("Walking" in localStorage){
+        document.getElementById("trace-back").style.display = "block"
+    }else {
+        document.getElementById("hide-run").style.display = "block"
+    }
+}
 function  alreadyHere() {
     if ("Path" in localStorage) {
         helpSection.style.display = "block";
@@ -135,7 +160,6 @@ function  alreadyHere() {
         }
     }
 }
-
 function keyboard() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -163,7 +187,7 @@ function keyboard() {
 function colorComb() {
     const userComb = document.getElementById("inputEmergency").value;
     if (userComb === "2,10,5"){
-        window.location.href = "../western/western.html"
+        window.location.href = "../mixed-rooms/final-boss.html"
     } else if (userComb === "") {
         return false;
     } else {
@@ -187,7 +211,6 @@ function mirror() {
     }
 
 }
-
 function musicInstr() {
     localStorage.setItem("music", music);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -213,5 +236,128 @@ function fireWeap() {
     }
     if ("mirroritem" in localStorage) {
         localStorage.removeItem('mirroritem');
+    }
+}
+function helpCreature() {
+    document.getElementById("help-section").style.display = "block";
+    document.getElementById("main").style.marginRight = "0";
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(creatureInteract )  < 1){
+        document.getElementsByClassName("button-hint-close")
+        paragraph.textContent += creatureInteract ;
+        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML ="Play";
+        acceptCode.addEventListener("click", nextPhase);
+
+    } else {
+        helpSection.style.display = "block";
+    }
+}
+function attackCreature() {
+    document.getElementById("help-section").style.display = "block";
+    document.getElementById("main").style.marginRight = "0";
+    document.getElementById("disabling").style.pointerEvents = "none";
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(weaponCreature )  < 1){
+        document.getElementsByClassName("button-hint-close")
+        paragraph.textContent += weaponCreature ;
+        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML ="Shoot";
+        acceptCode.addEventListener("click", attack);
+
+    } else {
+        helpSection.style.display = "block";
+    }
+}
+function showMirror() {
+    document.getElementById("help-section").style.display = "block";
+    document.getElementById("main").style.marginRight = "0";
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(mirrorCreature )  < 1){
+        document.getElementsByClassName("button-hint-close")
+        paragraph.textContent += mirrorCreature ;
+        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML ="Show it";
+        acceptCode.addEventListener("click", nextPhase);
+
+    } else {
+        helpSection.style.display = "block";
+    }
+}
+function nextPhase() {
+    window.location.href = "western-creature-help.html"
+}
+function attack() {
+    window.location.href = "western-creature-attack.html"
+}
+function dice() {
+    luck = Math.floor(Math.random() * Math.floor(10));
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    if (luck <= 4) {
+        document.getElementById("help-section").style.display = "block";
+        document.getElementById("main").style.marginRight = "0";
+        if (document.getElementById("paragraph-help").innerHTML.indexOf(deadCreature  )  < 1){
+            paragraph.textContent += deadCreature ;
+            paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+            acceptCode.setAttribute("id", "enterCode");
+            acceptCode.style.height = "20px";
+            acceptCode.style.width = "70px";
+            acceptCode.innerHTML ="Enter";
+            acceptCode.addEventListener("click", afterShot);
+            }
+   } else {
+       window.location.href = "../mixed-rooms/gameover.html";
+    }
+}
+function afterShot() {
+    window.location.href = "../mixed-rooms/final-boss.html";
+}
+function deviceBeep() {
+    document.getElementById("article-main").style.marginBottom = "85px";
+    if ("Device" in localStorage){
+        helpSection.style.display = "block";
+        document.getElementById("main").style.marginRight = "0";
+        if (document.getElementById("paragraph-help").innerHTML.indexOf(deviceAdvicePortal)  < 1){
+            paragraph.textContent += deviceAdvicePortal;
+        } else {
+            helpSection.style.display = "block";
+        }
+    }
+}
+function deviceBeepFinal() {
+    if ("Device" in localStorage){
+        helpSection.style.display = "block";
+        document.getElementById("main").style.marginRight = "0";
+        if (document.getElementById("paragraph-help").innerHTML.indexOf(finalAdvice)  < 1){
+            paragraph.textContent += finalAdvice;
+        } else {
+            helpSection.style.display = "block";
+        }
+    }
+}
+function changeItems() {
+    if ("music" in localStorage) {
+        localStorage.removeItem('music');
+    }
+    if ("mirroritem" in localStorage) {
+        localStorage.removeItem('mirroritem');
+    }
+
+    window.location.href = "../mixed-rooms/final-boss.html";
+
+}
+function memoryTest() {
+    console.log(sessionStorage.clickcount);
+    if(typeof(Storage) === "undefined"){
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+        }else
+            sessionStorage.clickount = 1;
     }
 }
