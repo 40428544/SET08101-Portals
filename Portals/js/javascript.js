@@ -485,7 +485,6 @@ function memoryTest() {
 function answerMemoryTest() {
     const userCount = parseInt(document.getElementById("inputEmergency").value) + 1; //Adding one to user input so it matches page count
     const userString = userCount.toString();
-    console.log(userString);
     if(count() === userString){
         window.location.href = "../mixed-rooms/game-won.html"
     }
@@ -528,7 +527,7 @@ function answerThemes() {
         window.location.href = "../mixed-rooms/game-won.html"
     }
     else{
-        window.location.href = "../space/space-chase.html"
+        window.location.href = "../mixed-rooms/gameover.html"
     }
 }
 
@@ -567,7 +566,8 @@ function timedQuestion() {
  */
 function answerTime() {
     const userInput = document.getElementById("inputEmergency").value;
-    if(userInput === "Sofia"){
+    const parsed = userInput.toLowerCase();
+    if(parsed === "sofia"){
         window.location.href = "../mixed-rooms/game-won.html"
     }
     else{
@@ -660,7 +660,6 @@ function count() {
     }else {
         sessionStorage.setItem("Refresh", `${parseInt(status) + 1}`);  //String using parseInt inside.
     }
-    console.log(status);
     return status;
 }
 
