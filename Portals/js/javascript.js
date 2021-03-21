@@ -7,19 +7,23 @@ const comm = "Hi, I am here to help! You will need to remember this number - 590
 const input = document.createElement("INPUT");
 const acceptCode = document.createElement("BUTTON");
 const errorCode = document.createElement("P");
-const doorNote = "The door is locked but you find a note: 'You need a 5 digit code and you have the last 2 in this room'";
+const doorNote = "The door is locked but when you look closer you see another sign explaining that you need a 3 numbers for three colours.";
 const Path = "You have been here already!";
 const comb = "Enter the correct combination of numbers for these colours, Purple, Blue and Yellow, using the following format 1,2,3";
 const Walking = "Walk path available";
-const  mirrorItem = "You have a mirror";
-const  weapon = "You have a weapon";
+const mirrorItem = "You have a mirror";
+const weapon = "You have a weapon";
 const music = "You have an instrument";
 const creatureInteract = "The creature recognises the instrument and eases its attitude with you.";
 const weaponCreature = "The creature startles when it sees the weapon and attacks you.";
 const mirrorCreature = "The creature seems interested about the mirror and eases its attitude.";
 const deadCreature = "You managed a successful shot. The creature leaves a portal in its location after vanishing.";
 const deviceAdvicePortal = "Device beeping! - You should definitely take the left portal to avoid a certain death.";
-const finalAdvice = "Device beeping! - You have reached the final room!";
+const finalAdvice = "Device beeping! - You have reached the final room! Close dialogue to continue.";
+const memoryQuestion = "How many pages have you gone through during the game? Refreshing counts."
+const knowledgeQuestion = "How many different themes does the game have?"
+const timeQuestion = "What is the capital of Bulgaria? You have 10 seconds to answer."
+const bossWeapon = "The villain is startled, you have one chance to hit him. You can still choose other questions."
 
 function changeBackground() {
     document.getElementById("main").style.backgroundColor= "#FFFFFFB3";
@@ -94,6 +98,23 @@ function incomingComm() {
     }
 }
 
+/**
+ *  Help with repetitive functions
+ */
+function setInput() {
+
+    paragraph.parentNode.insertBefore(input, paragraph.nextSibling); //adds the node after -- spacing.appendChild(acceptCode);
+    input.setAttribute("id", "inputEmergency");
+
+    input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
+    acceptCode.setAttribute("id", "enterCode");
+    acceptCode.style.height = "20px";
+    acceptCode.style.width = "70px";
+}
+
+/**
+ *  Display code
+ */
 function emergencyCode(){
     helpSection.style.display = "block";
     document.getElementById("help-section").style.backgroundColor = "#FFFFFFB3";
@@ -104,13 +125,7 @@ function emergencyCode(){
     if (document.getElementById("paragraph-help").innerHTML.indexOf(textEmergency)  < 1){
         paragraph.textContent += textEmergency;
 
-        paragraph.parentNode.insertBefore(input, paragraph.nextSibling); //adds the node after -- spacing.appendChild(acceptCode);
-        input.setAttribute("id", "inputEmergency");
-
-        input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
-        acceptCode.setAttribute("id", "enterCode");
-        acceptCode.style.height = "20px";
-        acceptCode.style.width = "70px";
+        setInput();
         acceptCode.innerHTML ="Enter!";
 
         document.getElementById("enterCode").onclick = function() {enteringCode()};
@@ -120,6 +135,9 @@ function emergencyCode(){
     }
 }
 
+/**
+ *  Teleport code
+ */
 function enteringCode() {
     const userCode = document.getElementById("inputEmergency").value;
     if (userCode === "59020"){
@@ -131,6 +149,9 @@ function enteringCode() {
     }
 }
 
+/**
+ *  Door note
+ */
 function openDoor() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -150,12 +171,18 @@ function addLocation() {
     localStorage.setItem("Walking", Walking);
 }
 
+/**
+ *  Show knew path
+ */
 function checkingPath() {
     if ("Walking" in localStorage) {
         document.getElementById("hidingItem").style.visibility = "visible";
     }
 }
 
+/**
+ *  Show two additional paths
+ */
 function runOrPath(){
     if("Walking" in localStorage){
         document.getElementById("trace-back").style.display = "block"
@@ -164,11 +191,15 @@ function runOrPath(){
     }
 }
 
+/**
+ *  Hint
+ */
 function  alreadyHere() {
     if ("Path" in localStorage) {
         helpSection.style.display = "block";
         document.getElementById("help-section").style.backgroundColor = "#ACC8E580";
         document.getElementById("main").style.marginRight = "0";
+        document.getElementById("help-section").style.maxHeight = "80px";
         if (document.getElementById("paragraph-help").innerHTML.indexOf(Path) < 1) {
             paragraph.textContent += Path;
         } else {
@@ -177,6 +208,9 @@ function  alreadyHere() {
     }
 }
 
+/**
+ *  Output keyboard menu
+ */
 function keyboard() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
@@ -184,14 +218,7 @@ function keyboard() {
     if (document.getElementById("paragraph-help").innerHTML.indexOf(comb)  < 1){
         paragraph.textContent += comb;
         document.getElementById("help-section").style.maxHeight = "300px";
-
-        paragraph.parentNode.insertBefore(input, paragraph.nextSibling); //adds the node after -- spacing.appendChild(acceptCode);
-        input.setAttribute("id", "inputEmergency");
-
-        input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
-        acceptCode.setAttribute("id", "enterCode");
-        acceptCode.style.height = "20px";
-        acceptCode.style.width = "70px";
+        setInput()
         acceptCode.innerHTML ="Confirm";
 
         document.getElementById("enterCode").onclick = function() {colorComb()};
@@ -201,6 +228,9 @@ function keyboard() {
     }
 }
 
+/**
+ *  Colours puzzle solution
+ */
 function colorComb() {
     const userComb = document.getElementById("inputEmergency").value;
     if (userComb === "2,10,5"){
@@ -215,6 +245,9 @@ function colorComb() {
     }
 }
 
+/**
+ *  Retrieves musical mirror
+ */
 function mirror() {
     localStorage.setItem("mirrorItem", mirrorItem);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -228,6 +261,9 @@ function mirror() {
     }
 }
 
+/**
+ *  Retrieves musical instrument
+ */
 function musicInstr() {
     localStorage.setItem("music", music);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -242,6 +278,9 @@ function musicInstr() {
     }
 }
 
+/**
+ *  Retrieves fire weapon
+ */
 function fireWeap() {
     localStorage.setItem("weapon", weapon);
     document.getElementById("itemMirror").style.pointerEvents = "none";
@@ -256,16 +295,26 @@ function fireWeap() {
     }
 }
 
+/**
+ *  Repetitive function
+ */
+function addingText(outPutText){
+    document.getElementsByClassName("button-hint-close")
+    paragraph.textContent += outPutText ;
+    paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+    acceptCode.setAttribute("id", "enterCode");
+    acceptCode.style.height = "20px";
+    acceptCode.style.width = "70px";
+}
+
+/**
+ *  Display message and send next room
+ */
 function helpCreature() {
     document.getElementById("help-section").style.display = "block";
     document.getElementById("main").style.marginRight = "0";
     if (document.getElementById("paragraph-help").innerHTML.indexOf(creatureInteract )  < 1){
-        document.getElementsByClassName("button-hint-close")
-        paragraph.textContent += creatureInteract ;
-        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
-        acceptCode.setAttribute("id", "enterCode");
-        acceptCode.style.height = "20px";
-        acceptCode.style.width = "70px";
+        addingText(creatureInteract);
         acceptCode.innerHTML ="Play";
         acceptCode.addEventListener("click", nextPhase);
 
@@ -274,17 +323,15 @@ function helpCreature() {
     }
 }
 
+/**
+ *  Use weapon
+ */
 function attackCreature() {
     document.getElementById("help-section").style.display = "block";
     document.getElementById("main").style.marginRight = "0";
     document.getElementById("disabling").style.pointerEvents = "none";
     if (document.getElementById("paragraph-help").innerHTML.indexOf(weaponCreature )  < 1){
-        document.getElementsByClassName("button-hint-close")
-        paragraph.textContent += weaponCreature ;
-        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
-        acceptCode.setAttribute("id", "enterCode");
-        acceptCode.style.height = "20px";
-        acceptCode.style.width = "70px";
+        addingText(weaponCreature);
         acceptCode.innerHTML ="Shoot";
         acceptCode.addEventListener("click", attack);
 
@@ -293,16 +340,14 @@ function attackCreature() {
     }
 }
 
+/**
+ *  Message mirror
+ */
 function showMirror() {
     document.getElementById("help-section").style.display = "block";
     document.getElementById("main").style.marginRight = "0";
     if (document.getElementById("paragraph-help").innerHTML.indexOf(mirrorCreature )  < 1){
-        document.getElementsByClassName("button-hint-close")
-        paragraph.textContent += mirrorCreature ;
-        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
-        acceptCode.setAttribute("id", "enterCode");
-        acceptCode.style.height = "20px";
-        acceptCode.style.width = "70px";
+        addingText(mirrorCreature);
         acceptCode.innerHTML ="Show it";
         acceptCode.addEventListener("click", nextPhase);
 
@@ -319,6 +364,9 @@ function attack() {
     window.location.href = "western-creature-attack.html"
 }
 
+/**
+ *  Checks random number equal or lower than 4
+ */
 function dice() {
     const luck = Math.floor(Math.random() * Math.floor(10));
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -343,6 +391,9 @@ function afterShot() {
     window.location.href = "../mixed-rooms/final-boss.html";
 }
 
+/**
+ *  Device throws advise
+ */
 function deviceBeep() {
     document.getElementById("article-main").style.marginBottom = "85px";
     if ("Device" in localStorage){
@@ -356,18 +407,30 @@ function deviceBeep() {
     }
 }
 
+/**
+ *  Device blocking buttons
+ */
 function deviceBeepFinal() {
     if ("Device" in localStorage){
         helpSection.style.display = "block";
         document.getElementById("main").style.marginRight = "0";
         if (document.getElementById("paragraph-help").innerHTML.indexOf(finalAdvice)  < 1){
             paragraph.textContent += finalAdvice;
+            document.getElementById("block-1").style.pointerEvents = "none";
+            document.getElementById("block-2").style.pointerEvents = "none";
+            document.getElementById("block-3").style.pointerEvents = "none";
+            document.getElementById("block-4").style.pointerEvents= "none";
+            document.getElementById("restoring").style.marginTop = "10px";
+            document.getElementById("help-section").style.maxHeight = "170px";
         } else {
             helpSection.style.display = "block";
         }
     }
 }
 
+/**
+ *  Remove item from storage
+ */
 function changeItems() {
     if ("music" in localStorage) {
         localStorage.removeItem('music');
@@ -380,27 +443,210 @@ function changeItems() {
 }
 
 /**
- *  Final boss memory test.
+ *  Repetitive code in boss
+ */
+function memoryTestHelper(displayText) {
+    paragraph.textContent += displayText;
+
+    paragraph.parentNode.insertBefore(input, paragraph.nextSibling); //adds the node after -- spacing.appendChild(acceptCode);
+    input.setAttribute("id", "inputEmergency");
+    if (document.getElementById("inputEmergency").style.display === "none"){
+        document.getElementById("inputEmergency").style.display = "block";
+        document.getElementById("inputEmergency").style.marginLeft = "25px";
+}}
+
+/**
+ * Final boss memory test
  */
 function memoryTest() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
-    document.getElementsByClassName("button-hint-close")
-    paragraph.textContent += weaponCreature ;
 
-    paragraph.parentNode.insertBefore(input, paragraph.nextSibling); //adds the node after -- spacing.appendChild(acceptCode);
-    input.setAttribute("id", "inputEmergency");
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(memoryQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(knowledgeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(timeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(bossWeapon) < 1){
+        memoryTestHelper(memoryQuestion);
+        document.getElementById("help-section").style.maxHeight = "260px";
+        input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML ="Confirm";
+        document.getElementById("enterCode").onclick = function() {answerMemoryTest()};
+    }else {
+        helpSection.style.display = "block";
+    }
+}
 
-    input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
-    acceptCode.setAttribute("id", "enterCode");
-    acceptCode.style.height = "20px";
-    acceptCode.style.width = "70px";
-    acceptCode.innerHTML ="Confirm";
-    acceptCode.style.b
+/**
+ * Provides two different exits
+ */
+function answerMemoryTest() {
+    const userCount = parseInt(document.getElementById("inputEmergency").value) + 1; //Adding one to user input so it matches page count
+    const userString = userCount.toString();
+    console.log(userString);
+    if(count() === userString){
+        window.location.href = "../mixed-rooms/game-won.html"
+    }
+    else{
+        window.location.href = "../space/space.html"
+    }
+}
 
-    document.getElementById("enterCode").onclick = function() {colorComb()};
-    if(count() < userCount){
+/**
+ *  Question about themes.
+ */
+function themes(){
+    helpSection.style.display = "block";
+    document.getElementById("main").style.marginRight = "0";
 
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(knowledgeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(memoryQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(timeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(bossWeapon) < 1) {
+
+        memoryTestHelper(knowledgeQuestion);
+        document.getElementById("help-section").style.maxHeight = "200px";
+        input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML = "Confirm";
+        document.getElementById("enterCode").onclick = function() {answerThemes()}
+    } else {
+        helpSection.style.display = "block";
+    }
+}
+
+/**
+ *  Answering theme question.
+ */
+function answerThemes() {
+    const userInput= parseInt(document.getElementById("inputEmergency").value);
+    if(userInput === 4){
+        window.location.href = "../mixed-rooms/game-won.html"
+    }
+    else{
+        window.location.href = "../space/space-chase.html"
+    }
+}
+
+/**
+ *  Time question.
+ */
+function timedQuestion() {
+    helpSection.style.display = "block";
+    document.getElementById("progressBar").style.margin = "auto";
+    document.getElementById("main").style.marginRight = "0";
+
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(knowledgeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(memoryQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(timeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(bossWeapon) < 1) {
+        countDown()
+        document.getElementById("restoring").style.display = "none";
+        document.getElementById("progressBar").style.display = "block";
+        memoryTestHelper(timeQuestion);
+
+        document.getElementById("help-section").style.maxHeight = "220px";
+
+        input.parentNode.insertBefore(acceptCode, input.nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML = "Confirm";
+        document.getElementById("enterCode").onclick = function() {answerTime()}
+    } else {
+        helpSection.style.display = "block";
+    }
+}
+
+/**
+ *  Answering time question.
+ */
+function answerTime() {
+    const userInput = document.getElementById("inputEmergency").value;
+    if(userInput === "Sofia"){
+        window.location.href = "../mixed-rooms/game-won.html"
+    }
+    else{
+        window.location.href = "../mixed-rooms/two-doors.html"
+    }
+}
+
+/**
+ *  Timer.
+ */
+function countDown() {
+    let timeLeft = 10;
+    let timer = setInterval(function () { //https://stackoverflow.com/questions/31106189/create-a-simple-10-second-countdown
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+        }
+        document.getElementById("progressBar").value = 10 - timeLeft;
+        timeLeft -= 1;
+    }, 1000);
+    setTimeout(function(){window.location.href = "../mixed-rooms/gameover.html"}, 12000);
+}
+
+/**
+ *  Fire weapon to boss.
+ */
+function attackBoss() {
+    document.getElementById("help-section").style.display = "block";
+    document.getElementById("main").style.marginRight = "0";
+
+    if (document.getElementById("paragraph-help").innerHTML.indexOf(knowledgeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(memoryQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(timeQuestion) < 1
+        && document.getElementById("paragraph-help").innerHTML.indexOf(bossWeapon) < 1){
+        document.getElementsByClassName("button-hint-close")
+        paragraph.textContent += bossWeapon;
+        document.getElementById("help-section").style.maxHeight = "225px";
+
+        paragraph .parentNode.insertBefore(acceptCode, paragraph .nextSibling); //adding the button
+        acceptCode.setAttribute("id", "enterCode");
+        acceptCode.style.height = "20px";
+        acceptCode.style.width = "70px";
+        acceptCode.innerHTML ="Shoot";
+        acceptCode.addEventListener("click", attackWithDice);
+
+    } else {
+        helpSection.style.display = "block";
+    }
+}
+
+/**
+ *  Resolve attack to boss with weapon
+ */
+function attackWithDice() {
+    const luck = Math.floor(Math.random() * Math.floor(10));
+    if (luck <= 2){
+        window.location.href = "../mixed-rooms/game-won.html"
+    }else {
+        window.location.href = "../mixed-rooms/do-nothing.html"
+    }
+}
+
+/**
+ *  Closes dialogue in boss
+ */
+function closeHintRestore() {
+    if (helpSection.style.display === "block") {
+        document.getElementById(paragraph.textContent = " ");
+        helpSection.style.display = "none";
+        document.getElementById("main").style.marginRight = "auto";
+        document.getElementById("progressBar").style.display = "none";
+        if(document.getElementById("inputEmergency")) {
+            document.getElementById("inputEmergency").style.display = "none";
+        }
+        if(document.getElementById("block-1")){
+            document.getElementById("block-1").style.pointerEvents = "auto";
+            document.getElementById("block-2").style.pointerEvents = "auto";
+            document.getElementById("block-3").style.pointerEvents = "auto";
+            document.getElementById("block-4").style.pointerEvents= "auto";
+        }
     }
 }
 
@@ -418,6 +664,9 @@ function count() {
     return status;
 }
 
+/**
+ *  Resets storage when game reloaded
+ */
 function resetCount() {
     sessionStorage.clear();
     localStorage.clear();

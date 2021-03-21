@@ -32,17 +32,18 @@
                             </div>
                         </article>
                         <div id="grid-space">
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="memoryTest()">Memory test</button></div>
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='second-room.html'">Knowledge question</button></div>
-                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='second-room.html'">Timed question</button></div>
-                            <div class ="grid-item" id="western-hidden-weapon"><button type="button" class="button-first-room" onclick="attackCreature()">Use fire weapon</button></div>
+                            <div class ="grid-item"><button type="button" id="block-1" class="button-first-room" onclick="memoryTest()">Memory test</button></div>
+                            <div class ="grid-item"><button type="button" id="block-2" class="button-first-room" onclick="themes()">Knowledge question</button></div>
+                            <div class ="grid-item"><button type="button" id="block-3" class="button-first-room" onclick="timedQuestion()">Timed question</button></div>
+                            <div class ="grid-item" id="western-hidden-weapon"><button type="button" id="block-4" class="button-first-room" onclick="attackBoss()">Use fire weapon</button></div>
                         </div>
                     </section>
 
                     <aside id="help-section">
                         <p id="paragraph-help">
                         </p>
-                        <button type="button" class="button-hint-close" onclick="close_hint()">Close dialogue</button>
+                        <progress value="0" max="10" id="progressBar"></progress>
+                        <button type="button" class="button-hint-close" id="restoring" onclick="closeHintRestore()">Close dialogue</button>
                     </aside>
                 </div>
 

@@ -348,4 +348,14 @@ a:hover {
 #hide-run{
   display: none;
 }
+#progressBar {
+  width: 120px;
+  display: none;
+}
+#game-won {
+  font-size: 80px;
+  color: green;
+  text-shadow: -3px -3px #404E4D;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
