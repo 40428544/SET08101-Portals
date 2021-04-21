@@ -1,0 +1,56 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="city-body" onload="changeBackgroundCity(); count()">
+        <div id="city-effect">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                               You are in an empty room, all you can see is another door ahead, the door that you have behind and two bright
+                                colours with a number printed on them in each side of the room respectively.
+                            </p>
+                            <p class="paragraph-main">
+                                To the right, a big purple square with the number 10.
+                            </p>
+                            <p class="paragraph-main">
+                                To the left a painted yellow rectangle with the number 5.
+                            </p>
+                            <p class="paragraph-main" id="city-paragraph">
+                                Once you approach the door you see a sign in the local language:
+                                %$"as! blue first ^&ia*( ~@!dxc$%£.
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='room-second.html'">Enter second door</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="openDoor()">Go back to the first door</button></div>
+                        </div>
+                    </section>
+
+                    <aside id="help-section">
+                        <p id="paragraph-help">
+                        </p>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close Hint</button>
+                    </aside>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="../index.html" onclick="resetCount()">Restart game</a></li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>

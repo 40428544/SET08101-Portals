@@ -1,0 +1,58 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="city-body" onload="changeBackgroundCity(); alreadyHere(); count()">
+        <div id="city-effect">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                               In this room you see more coloured shapes on the walls with their respective numbers.
+                            </p>
+                            <p class="paragraph-main">
+                               A blue triangle with the number 2. A circle in orange with the number 4 and a
+                                parallelogram in brown with the number 1.
+                            </p>
+                            <p class="paragraph-main">
+                                A new portal has also appeared in the room, very close to you. There is a door to
+                                another room and also the door from where you came.
+                            </p>
+                            <p class="paragraph-main">
+                                At last, yet another portal with a sign of DANGER! is located in the corner of the room.
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/do-nothing.html'">New Portal</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='room-third.html'">Go through the door</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='room-first.html'">Go back</button></div>
+                            <div class ="grid-item" id="grid-position"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/do-nothing.html'">DANGER!</button></div>
+                        </div>
+                    </section>
+                    <aside id="help-section">
+                        <p id="paragraph-help">
+                        </p>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close Hint</button>
+                    </aside>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="../index.html" onclick="resetCount()">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+        </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>

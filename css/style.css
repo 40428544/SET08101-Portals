@@ -1,0 +1,373 @@
+#body-main {
+  padding: 1em;
+  background-image:url("../images/main-background.jpg");
+  background-size: cover;
+}
+#wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+#wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+#header {
+  order:1;
+  -webkit-box-shadow: 11px -8px 3px 2px rgba(0,0,0,0.64);
+  box-shadow: 11px -8px 3px 2px rgba(0,0,0,0.64);
+  background-image: url("../images/rock.jpg");
+}
+#title{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 85px;
+  font-weight: bolder;
+  margin:0;
+  text-shadow: -3px -3px #1D2D3533;
+  background: -webkit-linear-gradient(#C59D6D, #D5B895);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#wrapper-help-main{
+  order: 2;
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.wrapper-2{
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  text-align: center;
+  justify-content: space-around;
+}
+#main {
+  border-style: solid;
+  border-width: 30px;
+  border-image:url("../images/rock.jpg") 30 round;
+  background-color: rgba(213, 184, 149, 0.7);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 50px auto 50px auto;
+  /* Margins: top, right, bottom and left */
+
+  max-width:700px;
+  min-height:500px;
+  max-height: 500px;
+  min-width: 700px;
+  /* Sizing and positioning main so contents don't change it */
+
+  -webkit-box-shadow: 11px -8px 3px 2px rgba(0,0,0,0.64),
+  inset 0 0 10px #000000;
+  box-shadow: 11px -8px 3px 2px rgba(0,0,0,0.64),
+  inset 0 0 10px #000000;
+  /* Outset and inset shadow borders*/
+
+  -moz-box-shadow:inset 0 0 10px #000000;
+  /* Depth to main, inner border shadow */
+}
+
+#help-section {
+  display:none;
+
+  margin: 50px auto 0 0;
+  /* Margins: top, right, bottom and left */
+  max-width: 150px;
+  max-height: 200px;
+  padding:15px;
+
+  background-color: rgba(213, 184, 149, 0.7);
+
+  border-style: solid;
+  border-width: 20px 20px 20px 0;
+  border-image:url("../images/rock.jpg") 30 round;
+  -webkit-box-shadow: 11px -8px 3px 2px rgba(0,0,0,0.64), inset 0 0 10px #000000;
+  box-shadow: 11px -8px 3px 2px rgba(0,0,0,0.64), inset 0 0 10px #000000;
+  /* Outset and inset shadow borders*/
+}
+
+/* On screens that are 1035px wide or less, the elements change */
+@media all and  (max-width: 1035px){
+  #help-section{
+    margin: -50px auto auto auto;
+    /* Margins: top, right, bottom and left */
+    border-width: 0 20px 20px 20px;
+    box-shadow: 11px 0 3px 2px rgba(0,0,0,0.64);
+  }
+}
+.paragraph-main{
+  font-size:20px;
+  text-indent: 30px;
+  text-align:center;
+}
+.bullets-rules {
+  font-size:20px;
+  text-align: left;
+  margin: 0 60px;
+}
+.listMargin {
+  margin: 15px;
+}
+#paragraph-help{
+  margin: 0 auto auto auto;
+  /* Margins: top, right, bottom and left */
+  font-size:19px;
+  text-indent: 10px;
+  text-align:center;
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#two-doors-paragraph {
+  width:175px;
+  height:auto;
+  outline: none;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom:0;
+}
+#error-code {
+  margin: 0 auto auto auto;
+  font-size:19px;
+  text-align:center;
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#article-main {
+  margin:3em;
+}
+button:hover {
+  transform: scale(1.07);
+}
+#button-main{
+  padding: 15px 32px;
+  background-color: #A67A5B;
+  color: #D3ECEE;
+  font-weight: bold;
+  font-size:16px;
+  outline: none;
+}
+.button-hint-close{
+  margin-top: 8px;
+  color: #D3ECEE;
+  background-color: #A67A5B;
+  outline: none;
+}
+.button-first-room{
+  padding: 15px 32px;
+  background-color: #A67A5B;
+  color: #D3ECEE;
+  font-weight: bold;
+  font-size:16px;
+  outline: none;
+}
+#footer {
+  order: 4;
+  font-size: 30px;
+  background-image: url("../images/rock.jpg");
+  -webkit-box-shadow: 11px -8px 3px 2px rgba(0, 0, 0, 0.64);
+  box-shadow: 11px -8px 3px 2px rgba(0, 0, 0, 0.64);;
+}
+.navigation {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 0.5em;
+  margin-right: 50px;
+  color: #CEAC8D;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 0  #000000, -1px -1px 0  #000000, 1px -1px 0  #000000, -1px 1px 0 #000000;
+  /* Idea based from https://jsfiddle.net/luispa/kd4kjdck/99/ */
+
+  border-right:2px solid #000;
+  border-left:2px solid #000;
+}
+a:hover {
+  background: rgba(232, 220, 181, 0.5);
+  transform: scale(1.07);
+}
+@keyframes move-twink-back {
+ from {background-position:0 0;}
+ to {background-position:-10000px 5000px;}
+}
+@keyframes move-city-back {
+  from {background-position:top;}
+  to {background-position:0 -10000px;}
+  /*first value moves horizontally, second to vertically*/
+}
+/* Idea based on https://codepen.io/NazarTheVis/pen/zqXMqP */
+#container-portal-machine{
+  padding: 2em;
+}
+#portal-machine{
+  width:340px;
+  height:200px;
+  border: solid 1px #000000;
+}
+#villain {
+  border: solid 1px #000000;
+  width: 180px;
+  height: 250px;
+  margin-right: 45px;
+}
+#portal1{
+  width:175px;
+  height:225px;
+  background-image: url("../images/Portal1.jpg");
+  background-size: cover;
+  outline: none;
+  margin-top: 30px;
+  margin-bottom:30px;
+}
+#portal2{
+  width:175px;
+  height:225px;
+  background-image: url("../images/Portal2.jpg");
+  background-size: cover;
+  outline: none;
+  margin-top: 30px;
+  margin-bottom:30px;
+}
+#portal3{
+  width:175px;
+  height:225px;
+  background-image: url("../images/Portal3.jpg");
+  background-size: cover;
+  outline: none;
+  margin-top: 30px;
+  margin-bottom:30px;
+}
+.portal-door {
+  width:175px;
+  height:225px;
+  background-image: url("../images/doors.jpg");
+  background-position: center;
+  background-size: cover;
+  outline: none;
+  margin-top: 30px;
+  margin-bottom:30px;
+  font-size: 50px;
+  pointer-events: none;
+}
+#space-body {
+  padding: 1em;
+  background-image:url("../images/background-main.jpg");
+  background-size: cover;
+}
+#twinkling{
+  z-index: 1;
+  background:transparent url("../images/twinkling.png") repeat top center;
+  animation: move-twink-back 200s linear infinite;
+}
+#city-body {
+  padding: 1em;
+  background-image:url("../images/city-background.jpg");
+  background-size: cover;
+}
+#city-effect {
+  z-index: 1;
+  background: transparent  url("../images/rain.png") repeat top center;
+  animation: move-city-back 500s linear reverse infinite;
+}
+#western-body {
+  padding: 1em;
+  background-image:url("../images/western-background.jpg");
+  background-size: cover;
+}
+#grid-space{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 1px;
+  margin-right: 30px;
+  margin-left:30px;
+}
+#grid-two-columns{
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 1px;
+  margin-right: 30px;
+  margin-left:30px;
+}
+.grid-item {
+  border: none;
+  margin:5px;
+}
+#grid-position {
+  grid-column: 2 / 3;
+}
+#grid-position-two-doors {
+  grid-row: 2/2;
+}
+#inputEmergency{
+  margin: 8px 0 8px 0;
+  /* Margins: top, right, bottom and left */
+  border: solid 2px #000000;
+  width: 100px;
+  outline: none;
+}
+#enterCode {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #D3ECEE;
+  background-color: #A67A5B;
+  outline: none;
+}
+#cockpit{
+  margin-bottom: 10px;
+  border: solid 1px #000000;
+  border-radius: 8px;
+}
+#game-over{
+  font-size: 80px;
+  color: red;
+  text-shadow: -3px -3px #404E4D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#city-paragraph{
+  margin-bottom:60px;
+}
+#hidingItem{
+  visibility: hidden;
+}
+#western-hidden-weapon{
+  display: none;
+  grid-row: 2/2;
+  grid-column: 2 / 3;
+}
+#western-hidden-mirror{
+  display: none;
+  grid-row: 2/2;
+  grid-column: 2 / 3;
+}
+#western-hidden-music{
+  display: none;
+  grid-row: 2/2;
+  grid-column: 2 / 3;
+}
+#trace-back{
+  display: none;
+}
+#hide-run{
+  display: none;
+}
+#progressBar {
+  width: 120px;
+  display: none;
+}
+#game-won {
+  font-size: 80px;
+  color: green;
+  text-shadow: -3px -3px #404E4D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+

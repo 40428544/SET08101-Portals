@@ -1,0 +1,49 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="western-body" onload="creatureInteractAdjust(); count()">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <div id="container-portal-machine">
+                                <img src="../images/crature.jpg" alt="Creature" id="portal-machine">
+                            </div>
+                            <p class="two-doors-paragraph">
+                                The creature is able to read your intentions and asks for water and to be unchained. After you helped, it tells you that
+                                you should remember that where you go there is a panel and that you have to enter the colour blue first.
+                            </p>
+                            <p class="two-doors-paragraph">
+                                You will need two other numbers that link to colours, you can forget about shapes. Then it flies away, free.
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item" id="grid-position" ><button type="button" class="button-first-room" onclick="location.href='../city/room-third.html'">Portal</button></div>
+                        </div>
+                    </section>
+                    <aside id="help-section">
+                        <p id="paragraph-help">
+                        </p>
+                        <button type="button" class="button-hint-close" onclick="close_hint()">Close dialogue</button>
+                    </aside>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="../index.html" onclick="resetCount()">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>

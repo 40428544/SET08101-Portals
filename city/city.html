@@ -1,0 +1,50 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="city-body" onload="changeBackgroundCity(); count()">
+        <div id="city-effect">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                               Looking around it seems that you are in a special city, it seems from the future as if
+                                humanity had leaped in technology many years.
+                            </p>
+                            <p class="paragraph-main">
+                                It becomes clear where you have to go once you see the symbol of the villain stamped on
+                                a wall, there is a door next to it. Although, there is also an strange creature waving at you from
+                                the street.
+                            </p>
+                            <p class="paragraph-main" id="city-paragraph">
+                                On the opposite direction a new portal has appeared.
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item"><button type="button" class="button-first-room" id="opacity" onclick="location.href='stranger.html'">Approach stranger</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='room-first.html'">Enter through the door</button></div>
+                            <div class ="grid-item"><button type="button" class="button-first-room" onclick="location.href='../western/western-item.html'">Enter the portal</button></div>
+                        </div>
+                    </section>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="../index.html" onclick="resetCount()">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+        </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>

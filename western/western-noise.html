@@ -1,0 +1,49 @@
+<! DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset ="UTF-8"/>
+    <title>Portals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body id="western-body" onload="runOrPath(); count()">
+            <div id="wrapper">
+
+                <header id="header">
+                    <h1 id="title"> PORTALS </h1>
+                </header>
+
+                <div id="wrapper-help-main">
+                    <section id="main">
+                        <article id="article-main">
+                            <p class="paragraph-main">
+                                There is a valley in front of you and from afar you can see a creature you had never seen before, it has been hurt and is growling.
+                            </p>
+                            <p class="paragraph-main">
+                                You find it intimidating as it looks like it could kill in the blink of an eye, although, currently seems weak.
+                            </p>
+                            <p class="paragraph-main">
+                                At your position a portal appears when you place your eyes on the creature.
+                            </p>
+                            <p class="paragraph-main">
+                                What would you do?
+                            </p>
+                        </article>
+                        <div id="grid-space">
+                            <div class ="grid-item" id="hide-run"><button type="button" class="button-first-room" onclick="location.href='../mixed-rooms/two-doors.html'">Run away</button></div>
+                            <div class ="grid-item" id="trace-back"><button type="button" class="button-first-room" onclick="location.href='western.html'">Trace your steps back</button></div>
+                            <div class ="grid-item" ><button type="button" class="button-first-room" onclick="location.href='western-villain.html'">Portal</button></div>
+                            <div class ="grid-item" ><button type="button" class="button-first-room" onclick="location.href='western-creature.html'">Approach</button></div>
+                        </div>
+                    </section>
+                </div>
+
+                <footer id="footer">
+                    <ul class="navigation">
+                        <li><a href="../index.html" onclick="resetCount()">Restart game</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+    </body>
+<script src="../js/javascript.js"></script>
+</html>
