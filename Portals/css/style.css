@@ -90,7 +90,8 @@
   /* Outset and inset shadow borders*/
 }
 
-@media all and  (max-width: 1035px){ /* On screens that are 1035px wide or less, the elements change */
+/* On screens that are 1035px wide or less, the elements change */
+@media all and  (max-width: 1035px){
   #help-section{
     margin: -50px auto auto auto;
     /* Margins: top, right, bottom and left */

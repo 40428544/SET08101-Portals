@@ -25,14 +25,23 @@ const knowledgeQuestion = "How many different themes does the game have?"
 const timeQuestion = "What is the capital of Bulgaria? You have 10 seconds to answer."
 const bossWeapon = "The villain is startled, you have one chance to hit him. You can still choose other questions."
 
+/**
+ *  Background change
+ */
 function changeBackground() {
     document.getElementById("main").style.backgroundColor= "#FFFFFFB3";
 }
 
+/**
+ *  Background change
+ */
 function changeBackgroundCity() {
     document.getElementById("main").style.backgroundColor = "#ACC8E580";
 }
 
+/**
+ *  Display options depending on selection (Creature)
+ */
 function CreatureAdjust() {
     document.getElementById("article-main").style.marginTop = "0";
     document.getElementById("article-main").style.marginBottom = "0";
@@ -46,6 +55,9 @@ function CreatureAdjust() {
     }
 }
 
+/**
+ *  Block non-selected items
+ */
 function itemCheck() {
     if ("weapon" in localStorage) {
         document.getElementById("western-hidden-weapon").style.display = "block";
@@ -56,18 +68,26 @@ function itemCheck() {
     }
 }
 
+/**
+ *  Creature main box adjust
+ */
 function creatureInteractAdjust() {
     document.getElementById("article-main").style.marginTop = "0";
     document.getElementById("article-main").style.marginBottom = "0";
 }
 
+/**
+ *  Main box Doors puzzle
+ */
 function doorsMain() {
     document.getElementById("article-main").style.margin = "0";
     document.getElementById("main").style.maxHeight = "1000px";
     document.getElementById("grid-space").style.marginBottom = "15px";
 }
 
-//console.log(helpSection.style.display)
+/**
+ *  Store device
+ */
 function store_device() {
         helpSection.style.display = "block";
         document.getElementById("main").style.marginRight = "0";
@@ -79,6 +99,9 @@ function store_device() {
         }
 }
 
+/**
+ *  Close dialogue
+ */
 function close_hint() {
     if (helpSection.style.display === "block") {
         helpSection.style.display = "none";
@@ -86,17 +109,20 @@ function close_hint() {
     }
 }
 
+/**
+ *  Incoming communication interaction
+ */
 function incomingComm() {
     helpSection.style.display = "block";
     document.getElementById("main").style.marginRight = "0";
     document.getElementById("help-section").style.backgroundColor = "#FFFFFFB3";
-    //https://kilianvalkhof.com/2016/css-html/css-hexadecimal-colors-with-transparency-a-conversion-tool/
     if (document.getElementById("paragraph-help").innerHTML.indexOf(comm)  < 1){
         paragraph.textContent += comm;
     } else {
         helpSection.style.display = "block";
     }
 }
+//https://kilianvalkhof.com/2016/css-html/css-hexadecimal-colors-with-transparency-a-conversion-tool/
 
 /**
  *  Help with repetitive functions
@@ -163,6 +189,9 @@ function openDoor() {
     }
 }
 
+/**
+ *  Add path and value to local storage
+ */
 function storePath() {
     localStorage.setItem("Path", Path);
 }
@@ -172,7 +201,7 @@ function addLocation() {
 }
 
 /**
- *  Show knew path
+ *  Show new path
  */
 function checkingPath() {
     if ("Walking" in localStorage) {
@@ -192,8 +221,8 @@ function runOrPath(){
 }
 
 /**
- *  Hint
- */
+ *  Hint "You have been here already"
+ * */
 function  alreadyHere() {
     if ("Path" in localStorage) {
         helpSection.style.display = "block";
@@ -356,6 +385,9 @@ function showMirror() {
     }
 }
 
+/**
+ *  Next phase functions
+ */
 function nextPhase() {
     window.location.href = "western-creature-help.html"
 }
@@ -369,7 +401,6 @@ function attack() {
  */
 function dice() {
     const luck = Math.floor(Math.random() * Math.floor(10));
-    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
     if (luck <= 4) {
         document.getElementById("help-section").style.display = "block";
         document.getElementById("main").style.marginRight = "0";
@@ -386,6 +417,7 @@ function dice() {
        window.location.href = "../mixed-rooms/gameover.html";
     }
 }
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 function afterShot() {
     window.location.href = "../mixed-rooms/final-boss.html";
@@ -480,7 +512,7 @@ function memoryTest() {
 }
 
 /**
- * Provides two different exits
+ * Answer memory test
  */
 function answerMemoryTest() {
     const userCount = parseInt(document.getElementById("inputEmergency").value) + 1; //Adding one to user input so it matches page count
@@ -494,7 +526,7 @@ function answerMemoryTest() {
 }
 
 /**
- *  Question about themes.
+ *  Question about themes
  */
 function themes(){
     helpSection.style.display = "block";
@@ -651,15 +683,16 @@ function closeHintRestore() {
 }
 
 /**
- *  Counting pages.
+ *  Counting pages
  */
 function count() {
-    const status = sessionStorage.getItem("Refresh");
+    const status = localStorage.getItem("Refresh");
     if (!status){
-        sessionStorage.setItem("Refresh", "1");
+        localStorage.setItem("Refresh", "1");
     }else {
-        sessionStorage.setItem("Refresh", `${parseInt(status) + 1}`);  //String using parseInt inside.
+        localStorage.setItem("Refresh", `${parseInt(status) + 1}`);  //String using parseInt inside.
     }
+    //console.log(status)
     return status;
 }
 
@@ -667,6 +700,5 @@ function count() {
  *  Resets storage when game reloaded
  */
 function resetCount() {
-    sessionStorage.clear();
     localStorage.clear();
 }
